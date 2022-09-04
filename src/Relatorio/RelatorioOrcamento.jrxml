@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioOrcamento" pageWidth="226" pageHeight="425" columnWidth="186" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e663208b-3921-4ea1-8cac-e4f9f3d9b83c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="AdaptadorJDBC.xml"/>
+	<parameter name="DataOrcamento" class="java.lang.String"/>
+	<parameter name="OrcamentoID" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT tcc_pedro_v12.cliente.clie_nome,
+	tcc_pedro_v12.cliente.clie_cpf,
+	tcc_pedro_v12.cliente.clie_cnpj,
+	tcc_pedro_v12.cliente.clie_tipo,
+	tcc_pedro_v12.orcamento.orc_id,
+	tcc_pedro_v12.orcamento.orc_valor_total,
+	tcc_pedro_v12.orcamento.orc_data,
+	tcc_pedro_v12.orcamento.orc_vencimento,
+	tcc_pedro_v12.orcamento.orc_data_aprovacao,
+	tcc_pedro_v12.orcamento.orc_desconto,
+	tcc_pedro_v12.orcamento.orc_forma_pagamento,
+	tcc_pedro_v12.funcionario.fun_nome,
+	tcc_pedro_v12.funcionario.fun_cpf
+	, (orc_valor_total -orc_desconto) AS VALOR_SUBTRACAO
+FROM tcc_pedro_v12.orcamento
+	INNER JOIN tcc_pedro_v12.funcionario ON 
+	 tcc_pedro_v12.orcamento.funcionario_fun_id = tcc_pedro_v12.funcionario.fun_id 
+	INNER JOIN tcc_pedro_v12.cliente ON 
+	 tcc_pedro_v12.orcamento.cliente_clie_id = tcc_pedro_v12.cliente.clie_id where 
+	 orcamento.orc_id = $P{OrcamentoID}]]>
+	</queryString>
+	<field name="clie_nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="clie_nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="clie_cpf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="clie_cpf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="clie_cnpj" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="clie_cnpj"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="clie_tipo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="clie_tipo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="orc_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="orc_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="orcamento"/>
+	</field>
+	<field name="orc_valor_total" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="orc_valor_total"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="orcamento"/>
+	</field>
+	<field name="orc_data" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="orc_data"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="orcamento"/>
+	</field>
+	<field name="orc_vencimento" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="orc_vencimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="orcamento"/>
+	</field>
+	<field name="orc_data_aprovacao" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="orc_data_aprovacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="orcamento"/>
+	</field>
+	<field name="orc_desconto" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="orc_desconto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="orcamento"/>
+	</field>
+	<field name="orc_forma_pagamento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="orc_forma_pagamento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="orcamento"/>
+	</field>
+	<field name="fun_nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="fun_nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionario"/>
+	</field>
+	<field name="fun_cpf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="fun_cpf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionario"/>
+	</field>
+	<field name="VALOR_SUBTRACAO" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="VALOR_SUBTRACAO"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="119" splitType="Stretch">
+			<staticText>
+				<reportElement x="-12" y="51" width="211" height="14" uuid="b21eb728-1ad1-46f8-b6f4-37135cb29d4d"/>
+				<text><![CDATA[19470-000 Presidente Epitácio-SP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-12" y="37" width="211" height="14" uuid="f5332b39-5370-4b75-9730-1e158bc0be7f"/>
+				<text><![CDATA[Rua: Minas Gerais 2-64]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-11" y="20" width="210" height="16" uuid="f3d9a726-84b8-4d30-b031-04430810c1ea"/>
+				<text><![CDATA[CNPJ: 18.721.075/0001-27]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-12" y="0" width="210" height="20" uuid="da80b2f1-a72a-4aa8-92fc-6f02cf66bb57"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Casa do Tempero Aliança]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-11" y="65" width="211" height="16" uuid="328fe2bd-b6ed-4bb9-a647-5244d09a62ae"/>
+				<text><![CDATA[(18)3281-1024]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-12" y="80" width="211" height="14" uuid="5fd9e126-69df-42eb-8e64-4e178357864c"/>
+				<text><![CDATA[========================================]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="18" y="94" width="61" height="20" uuid="25847c18-540b-4bf0-bf33-1cae51e1ca4d"/>
+				<textFieldExpression><![CDATA[$F{orc_data}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-11" y="94" width="30" height="20" uuid="8533dd48-c0bb-423f-9d59-7df01447ed59"/>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="117" splitType="Stretch">
+			<subreport isUsingCache="true">
+				<reportElement x="-11" y="60" width="212" height="57" uuid="5477e6c6-d566-4648-a4cf-455b5dcd4b2b"/>
+				<subreportParameter name="idOrcamento">
+					<subreportParameterExpression><![CDATA[$F{orc_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="OrcamentoID">
+					<subreportParameterExpression><![CDATA[$F{orc_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:\\Users\\pedro\\Documents\\NetBeansProjects\\TrabalhoConclusaoCursoPedroTenorio\\src\\Relatorio\\RelatorioItemOrcamento.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="30" y="-5" width="70" height="20" uuid="09ede383-b067-4de7-b092-911587e68e5f"/>
+				<textFieldExpression><![CDATA[$F{clie_nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-11" y="-5" width="41" height="20" uuid="1febf51f-5771-4294-8513-5885a89b1cab"/>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-11" y="15" width="212" height="20" uuid="94b6139a-e743-4726-a837-928b51b6da36"/>
+				<text><![CDATA[==============Produtos================]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-11" y="36" width="212" height="22" uuid="2a8f4731-1f19-472d-bf88-985c9adc426c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Descrição              Quantitade        Unid       Valor       ]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

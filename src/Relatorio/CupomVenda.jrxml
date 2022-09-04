@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="226" pageHeight="425" columnWidth="186" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="322d245b-9ace-43d5-913b-f010bf12f306">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="AdaptadorJDBC.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="618"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="368"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<subDataset name="itemVenda" uuid="051c9e0f-3be5-4c33-81a5-b1e5ed137823">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="AdaptadorJDBC.xml"/>
+		<queryString language="SQL">
+			<![CDATA[Select 
+ven_id, ven_valor_total, ven_desconto, ven_forma_pagamento, ven_data, ven_hora, 
+item_id, item_descricao, item_quantidade, item_valor_unitario, item_unidade_medida
+from venda 
+inner join item_venda 
+on item_venda.venda_ven_id = ven_id]]>
+		</queryString>
+		<field name="item_id" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="item_id"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="item_venda"/>
+		</field>
+		<field name="item_descricao" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="item_descricao"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="item_venda"/>
+		</field>
+		<field name="item_quantidade" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.label" value="item_quantidade"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="item_venda"/>
+		</field>
+		<field name="item_valor_unitario" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.label" value="item_valor_unitario"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="item_venda"/>
+		</field>
+		<field name="item_unidade_medida" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="item_unidade_medida"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="item_venda"/>
+		</field>
+	</subDataset>
+	<parameter name="dataVenda" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="VendaID" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[Select 
+ven_id, ven_valor_total, ven_desconto, ven_forma_pagamento, ven_data, ven_hora, 
+fun_nome, fun_id, 
+clie_nome, clie_tipo, clie_id,
+(ven_valor_total - ven_desconto) AS VALOR_TOTAL
+from venda 
+inner join funcionario 
+on funcionario.fun_id = venda.funcionario_fun_id
+inner join cliente
+on cliente.clie_id = venda.cliente_clie_id
+where venda.ven_id  = $P{VendaID}]]>
+	</queryString>
+	<field name="ven_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="ven_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+	</field>
+	<field name="ven_valor_total" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ven_valor_total"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+	</field>
+	<field name="ven_desconto" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ven_desconto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+	</field>
+	<field name="ven_forma_pagamento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ven_forma_pagamento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+	</field>
+	<field name="ven_data" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="ven_data"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+		<property name="net.sf.jasperreports.jdbc.time.zone" value="America/Sao_Paulo"/>
+	</field>
+	<field name="ven_hora" class="java.sql.Time">
+		<property name="com.jaspersoft.studio.field.label" value="ven_hora"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+		<property name="net.sf.jasperreports.jdbc.time.zone" value="America/Sao_Paulo"/>
+	</field>
+	<field name="fun_nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="fun_nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionario"/>
+	</field>
+	<field name="fun_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="fun_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionario"/>
+	</field>
+	<field name="clie_nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="clie_nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="clie_tipo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="clie_tipo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="clie_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="clie_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="VALOR_TOTAL" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="VALOR_TOTAL"/>
+	</field>
+	<variable name="CALCULADESCONTO" class="java.math.BigDecimal" calculation="Sum"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="0" width="226" height="20" uuid="93e222af-30f4-4345-8a98-bb85561fc146"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Casa do Tempero Aliança]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-12" y="37" width="210" height="22" uuid="7ccfe5f7-e486-43be-9590-179071113c1d"/>
+				<text><![CDATA[Rua: Minas Gerais 2-64]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-11" y="20" width="210" height="16" uuid="fea87bbb-5de3-44bb-b009-58d88bf2eb74"/>
+				<text><![CDATA[CNPJ: 18.721.075/0001-27]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-11" y="60" width="210" height="20" uuid="5575a92b-7d03-43b1-837a-454cf7da4b94"/>
+				<text><![CDATA[19470-000 Presidente Epitácio-SP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="80" width="208" height="20" uuid="31fa61b8-bb17-4231-9b2f-db7779c91b2d"/>
+				<text><![CDATA[(18)3281-1024]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="143" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="30" width="170" height="20" uuid="fc161be3-1f5d-4ce0-a063-078024912143"/>
+				<textFieldExpression><![CDATA[$F{clie_nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="0" width="216" height="20" uuid="69aef131-804a-4013-b6b3-73f0f3b69949"/>
+				<text><![CDATA[========================================]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-11" y="50" width="210" height="20" uuid="c239b3ab-7183-4f68-b0d4-f5f3e6c9a6fe"/>
+				<text><![CDATA[===============Produtos=================]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-11" y="10" width="30" height="20" uuid="a5e2e430-283f-4866-bf25-94c48227f18c"/>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-11" y="30" width="40" height="20" uuid="0756587c-24d9-4ac6-b304-03afcff73a38"/>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="10" width="44" height="20" uuid="80afdd0f-59f0-42c9-a8e4-9e5d4bcc1413"/>
+				<text><![CDATA[Hora:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="70" width="210" height="22" uuid="d0a5fad4-e834-4d9b-a737-b72e406ba1ca"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Descrição              Quantitade        Unid       Valor       ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="90" width="210" height="20" uuid="9dd8e2e4-739a-418f-9c48-14921b8baeed"/>
+				<text><![CDATA[-----------------------------------------------------------------]]></text>
+			</staticText>
+			<textField pattern="d/M/yy">
+				<reportElement positionType="Float" x="19" y="10" width="66" height="20" uuid="126dabdb-66c5-4b93-b6f5-b8d4172e0ebb"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/YYYY").format($F{ven_data})]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm:ss">
+				<reportElement x="130" y="10" width="68" height="20" uuid="02519513-1a3c-451f-a9e6-d6e7d01421a0"/>
+				<textFieldExpression><![CDATA[$F{ven_hora}.toString()]]></textFieldExpression>
+			</textField>
+			<subreport isUsingCache="true">
+				<reportElement stretchType="RelativeToTallestObject" x="-12" y="110" width="212" height="30" uuid="d77f3478-eac3-4e01-9d2f-1f0b026b1896"/>
+				<subreportParameter name="VendaID">
+					<subreportParameterExpression><![CDATA[$F{ven_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:\\Users\\pedro\\Documents\\NetBeansProjects\\TrabalhoConclusaoCursoPedroTenorio\\src\\Relatorio\\CupomItemVenda.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<lastPageFooter>
+		<band height="87">
+			<staticText>
+				<reportElement x="-14" y="67" width="212" height="20" uuid="debf34e2-e705-4e88-ab38-afd8f6edbadd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[*** Este cupom não é um documento fiscal ***]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="19" y="33" width="179" height="20" uuid="8e8604c5-f91b-4066-860b-ed9f0a2249d8"/>
+				<textFieldExpression><![CDATA[$F{VALOR_TOTAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-14" y="33" width="30" height="20" uuid="af4f266b-199d-4993-83fd-d2d52bca705b"/>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-13" y="15" width="212" height="16" uuid="ee3e1bc7-d7ba-4cc2-876c-4c4f33964c7b"/>
+				<text><![CDATA[===========================================]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="89" y="-1" width="50" height="16" uuid="6dc33fb3-04d1-449c-95b7-95cbc88c9beb"/>
+				<text><![CDATA[Sub-Total]]></text>
+			</staticText>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="139" y="-1" width="60" height="16" uuid="21d16798-6ad0-45a2-ae53-abd80b8ccbe3"/>
+				<textFieldExpression><![CDATA[$F{ven_valor_total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00##;¤-#,##0.00##">
+				<reportElement x="40" y="-1" width="50" height="16" uuid="63fdd5d7-178b-416d-871b-9faab87cfdcd"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ven_desconto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="-1" width="50" height="16" uuid="b5747e6d-6f69-413d-b5b3-5f7dcdf30720"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[valor desc:]]></text>
+			</staticText>
+		</band>
+	</lastPageFooter>
+</jasperReport>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CupomItemVenda" pageWidth="226" pageHeight="226" columnWidth="186" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Error" uuid="8f2a8e1f-8784-46fa-8dbc-948dc46a1dee">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="AdaptadorJDBC.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="VendaID" class="java.lang.Integer" isForPrompting="false"/>
+	<queryString language="SQL">
+		<![CDATA[select * from item_venda where venda_ven_id = $P{VendaID}]]>
+	</queryString>
+	<field name="item_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="item_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item_venda"/>
+	</field>
+	<field name="item_descricao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="item_descricao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item_venda"/>
+	</field>
+	<field name="item_valor_unitario" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="item_valor_unitario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item_venda"/>
+	</field>
+	<field name="item_quantidade" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="item_quantidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item_venda"/>
+	</field>
+	<field name="item_unidade_medida" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="item_unidade_medida"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item_venda"/>
+	</field>
+	<field name="venda_ven_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="venda_ven_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item_venda"/>
+	</field>
+	<field name="estoque_est_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="estoque_est_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item_venda"/>
+	</field>
+	<variable name="CalculaPreco" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{item_valor_unitario}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="34">
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="-20" y="0" width="110" height="30" uuid="25ccb63c-8208-410d-9b49-8f097eecf6e9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cdbdad8c-e60d-4b25-a731-1f234e566def"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{item_descricao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.##;-#,##0.##">
+				<reportElement x="90" y="0" width="40" height="30" uuid="034892d0-17a9-49a0-b2a2-c472875de99f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aca61e88-0635-4076-aad8-d50c9308cef1"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{item_quantidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="30" height="30" uuid="41f6d0b0-afa5-427c-818d-6fe566ed5696">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="53310b06-9519-4fd8-8a88-d50e2f219f54"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{item_unidade_medida}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="160" y="0" width="40" height="30" uuid="76f247f8-65ce-4a1e-a1b7-24318327194f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d96c39d-dad7-4de7-9442-ad680e4e437e"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{item_valor_unitario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

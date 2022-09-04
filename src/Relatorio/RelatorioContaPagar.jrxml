@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioContaPagar" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8dfe57d9-394c-45c4-9983-3952fe789e95">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="AdaptadorJDBC.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[dGNjX3BlZHJvX3YxMi5jb250YV9wYWdhciBBUyAsODAsNTAsNGE3YjE0YzQtOGJhMi00MTk3LWFh
+MjgtYTdlMjdmNDI3OTc3Ow==]]>
+	</property>
+	<parameter name="DataCadastro" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT tcc_pedro_v12.conta_pagar.pag_id,
+	tcc_pedro_v12.conta_pagar.pag_descricao,
+	tcc_pedro_v12.conta_pagar.pag_vencimento,
+	tcc_pedro_v12.conta_pagar.pag_data,
+	tcc_pedro_v12.conta_pagar.pag_data_cadastro,
+	tcc_pedro_v12.conta_pagar.pag_valor,
+	tcc_pedro_v12.conta_pagar.pag_situacao,
+	tcc_pedro_v12.conta_pagar.pag_categoria,
+	tcc_pedro_v12.conta_pagar.fornecedor_for_id,
+	SUM(tcc_pedro_v12.conta_pagar.pag_valor)
+FROM tcc_pedro_v12.conta_pagar WHERE tcc_pedro_v12.conta_pagar.pag_data_cadastro 
+LIKE  $P{DataCadastro}]]>
+	</queryString>
+	<field name="pag_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="pag_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="conta_pagar"/>
+	</field>
+	<field name="pag_descricao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pag_descricao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="conta_pagar"/>
+	</field>
+	<field name="pag_vencimento" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="pag_vencimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="conta_pagar"/>
+	</field>
+	<field name="pag_data" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="pag_data"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="conta_pagar"/>
+	</field>
+	<field name="pag_data_cadastro" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="pag_data_cadastro"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="conta_pagar"/>
+	</field>
+	<field name="pag_valor" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="pag_valor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="conta_pagar"/>
+	</field>
+	<field name="pag_situacao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pag_situacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="conta_pagar"/>
+	</field>
+	<field name="pag_categoria" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pag_categoria"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="conta_pagar"/>
+	</field>
+	<field name="fornecedor_for_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="fornecedor_for_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="conta_pagar"/>
+	</field>
+	<field name="SUM(tcc_pedro_v12.conta_pagar.pag_valor)" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="SUM(tcc_pedro_v12.conta_pagar.pag_valor)"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="0" width="595" height="79" uuid="b01d03d8-d0ea-464b-8e4c-7ba31f63f238"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório Conta a Pagar]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="10" width="80" height="46" uuid="34bfbf41-e0cd-457c-9295-f5e410aaf042">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="704c04a3-08f1-4930-a490-4b7f9db97c00"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="60" y="10" width="515" height="46" uuid="d371464f-2b14-4429-af99-50b701a3db05">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="704c04a3-08f1-4930-a490-4b7f9db97c00"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUM(tcc_pedro_v12.conta_pagar.pag_valor)}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="94" splitType="Stretch">
+			<subreport>
+				<reportElement x="-20" y="0" width="595" height="94" uuid="d4362eac-0fa1-4121-9286-1333c4473422"/>
+				<subreportParameter name="dataCadastro">
+					<subreportParameterExpression><![CDATA[$P{DataCadastro}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:\\Users\\pedro\\Documents\\NetBeansProjects\\TrabalhoConclusaoCursoPedroTenorio\\src\\Relatorio\\RelatorioContaPagarLista.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

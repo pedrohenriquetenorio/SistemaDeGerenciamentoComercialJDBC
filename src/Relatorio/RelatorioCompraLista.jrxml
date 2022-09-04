@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioCompraLista" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8754def1-fba3-484e-8087-d32c98228265">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="AdaptadorJDBC.xml"/>
+	<parameter name="DataCompra" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT tcc_pedro_v12.compra.comp_hora,
+	tcc_pedro_v12.compra.comp_data,
+	tcc_pedro_v12.compra.comp_valor,
+	tcc_pedro_v12.funcionario.fun_nome,
+	tcc_pedro_v12.funcionario.fun_cargo,
+	tcc_pedro_v12.fornecedor.for_nome,
+	tcc_pedro_v12.fornecedor.for_email,
+	tcc_pedro_v12.fornecedor.for_cnpj,
+	tcc_pedro_v12.fornecedor.for_celular,
+	tcc_pedro_v12.fornecedor.for_telefone,
+	tcc_pedro_v12.fornecedor.for_categoria
+FROM tcc_pedro_v12.compra
+	INNER JOIN tcc_pedro_v12.fornecedor ON 
+	 tcc_pedro_v12.compra.fornecedor_for_id = tcc_pedro_v12.fornecedor.for_id 
+	INNER JOIN tcc_pedro_v12.funcionario ON 
+	 tcc_pedro_v12.compra.funcionario_fun_id = tcc_pedro_v12.funcionario.fun_id 
+	 where tcc_pedro_v12.compra.comp_data LIKE  $P{DataCompra}]]>
+	</queryString>
+	<field name="comp_hora" class="java.sql.Time">
+		<property name="com.jaspersoft.studio.field.label" value="comp_hora"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compra"/>
+	</field>
+	<field name="comp_data" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="comp_data"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compra"/>
+	</field>
+	<field name="comp_valor" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="comp_valor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compra"/>
+	</field>
+	<field name="fun_nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="fun_nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionario"/>
+	</field>
+	<field name="fun_cargo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="fun_cargo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionario"/>
+	</field>
+	<field name="for_nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="for_nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedor"/>
+	</field>
+	<field name="for_email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="for_email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedor"/>
+	</field>
+	<field name="for_cnpj" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="for_cnpj"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedor"/>
+	</field>
+	<field name="for_celular" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="for_celular"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedor"/>
+	</field>
+	<field name="for_telefone" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="for_telefone"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedor"/>
+	</field>
+	<field name="for_categoria" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="for_categoria"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedor"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField pattern="dd/MMMM">
+				<reportElement x="-20" y="0" width="70" height="30" uuid="8d39f41d-f692-48dd-a9fa-a7ccc5b3a86b"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{comp_data}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="50" y="0" width="70" height="30" uuid="6e7956ac-58a9-48e2-b116-4f9374b19e88"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{comp_hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="475" y="0" width="100" height="30" uuid="1a72bdfa-863a-46ec-886e-512d3eb63f3f"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fun_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="200" height="30" uuid="d91e7e3f-0438-4f27-80bf-b07fa7730d22"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{for_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="95" height="30" uuid="e24e2b4b-2dae-4496-b75c-9339b9516d9b"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{for_cnpj}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="120" y="0" width="60" height="30" uuid="7469e347-da7f-49d0-9c88-1330d51887b8"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{comp_valor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

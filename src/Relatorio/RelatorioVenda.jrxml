@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioVenda" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="500b8bcd-835e-42d7-b026-1aba6bb01c47">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="AdaptadorJDBC.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="484"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="516"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="463"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="523"/>
+	<parameter name="DATAVENDA" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT *,SUM(ven_valor_total) FROM 
+tcc_pedro_v12.venda where ven_data LIKE  $P{DATAVENDA}]]>
+	</queryString>
+	<field name="ven_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="ven_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+	</field>
+	<field name="ven_valor_total" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ven_valor_total"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+	</field>
+	<field name="ven_desconto" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ven_desconto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+	</field>
+	<field name="ven_forma_pagamento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ven_forma_pagamento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+	</field>
+	<field name="ven_data" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="ven_data"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+	</field>
+	<field name="ven_hora" class="java.sql.Time">
+		<property name="com.jaspersoft.studio.field.label" value="ven_hora"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+	</field>
+	<field name="funcionario_fun_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="funcionario_fun_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+	</field>
+	<field name="caixa_ca_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="caixa_ca_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+	</field>
+	<field name="cliente_clie_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="cliente_clie_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+	</field>
+	<field name="SUM(ven_valor_total)" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="SUM(ven_valor_total)"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="0" width="595" height="79" uuid="fd2408b8-c0fd-4b3b-a798-8b344d0d161b"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Venda]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="-20" y="1" width="595" height="47" uuid="90c9adf2-eafd-482b-aa17-16ae5c85135a"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="22"/>
+				</textElement>
+				<text><![CDATA[   Valor Total:]]></text>
+			</staticText>
+			<textField pattern="¤#,##0.##;¤-#,##0.##">
+				<reportElement x="120" y="0" width="400" height="48" uuid="7f5f95e9-29a8-47b7-b1a4-fc522cfe39d6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="07bfbfdf-6b84-494b-b477-fd04388842e7"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUM(ven_valor_total)}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="0" width="139" height="30" uuid="2b6e0f3a-353d-459d-b205-db1b33f1d5a6"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="0" width="96" height="30" uuid="6652306d-ceb8-465e-b216-490ad3a3b9c3"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[HORA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="215" y="0" width="133" height="30" uuid="937584cd-6520-45f1-b44b-79ed12665448"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="0" width="119" height="30" uuid="162eea04-03e7-4759-9517-b9cb028412ef"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="0" width="104" height="30" uuid="09c7b858-4ce2-4ede-8571-574592a79dd3"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FUNCIONÁRIO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="93" splitType="Stretch">
+			<subreport>
+				<reportElement x="-21" y="0" width="595" height="79" uuid="fcc50577-eb6e-4490-9cbd-7ce4fc998b10"/>
+				<subreportParameter name="DATAVENDALISTA">
+					<subreportParameterExpression><![CDATA[$P{DATAVENDA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:\\Users\\pedro\\Documents\\NetBeansProjects\\TrabalhoConclusaoCursoPedroTenorio\\src\\Relatorio\\RelatorioVendaLista.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="23" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

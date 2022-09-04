@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MovimentacaoCaixa" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="514eabb9-2cd7-4e1f-8ec0-e869a89099b0">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="AdaptadorJDBC.xml"/>
+	<queryString language="SQL">
+		<![CDATA[Select * from caixa]]>
+	</queryString>
+	<field name="ca_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="ca_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caixa"/>
+	</field>
+	<field name="ca_data_abertura" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="ca_data_abertura"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caixa"/>
+	</field>
+	<field name="ca_data_fechamento" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="ca_data_fechamento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caixa"/>
+	</field>
+	<field name="ca_valor_inicial" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ca_valor_inicial"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caixa"/>
+	</field>
+	<field name="ca_troco" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ca_troco"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caixa"/>
+	</field>
+	<field name="ca_valor_final" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ca_valor_final"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caixa"/>
+	</field>
+	<field name="ca_valor_fechamento" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ca_valor_fechamento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caixa"/>
+	</field>
+	<field name="ca_funcionario_abertura" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ca_funcionario_abertura"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caixa"/>
+	</field>
+	<field name="ca_funcionario_fechamento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ca_funcionario_fechamento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caixa"/>
+	</field>
+	<field name="ca_situacao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ca_situacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caixa"/>
+	</field>
+	<field name="ca_finaliza" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="ca_finaliza"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caixa"/>
+	</field>
+	<field name="ca_justificativa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ca_justificativa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caixa"/>
+	</field>
+	<field name="funcionario_fun_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="funcionario_fun_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="caixa"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="0" width="595" height="79" uuid="f79fc158-6aed-4708-a652-24486b812805"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Relatório de Movimentação de Caixa]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
