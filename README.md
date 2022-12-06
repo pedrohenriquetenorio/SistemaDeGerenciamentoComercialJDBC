@@ -1,0 +1,15 @@
+# ![Caixa Historico](https://user-images.githubusercontent.com/47091544/205941039-2a00045e-0927-4e43-93e0-5211c7dc7208.PNG)![Caixa](https://user-images.githubusercontent.com/47091544/205941049-78735336-87ad-4785-bfee-a7d36324f803.PNG)
+![Compra](https://user-images.githubusercontent.com/47091544/205941053-a1d48625-d68d-4a85-9be9-6eb62ad1ac08.PNG)
+![Controle de Cliente](https://user-images.githubusercontent.com/47091544/205941060-e6264934-54a9-41a8-a045-614e5911913b.PNG)
+![Controle de Funcionario](https://user-images.githubusercontent.com/47091544/205941061-3815e6c6-39e9-4b75-af33-2517325f40a7.PNG)
+![Controle de Produto](https://user-images.githubusercontent.com/47091544/205941065-aeca4a17-c659-44b4-9e82-258ae8849335.PNG)
+![Controle Financeiro](https://user-images.githubusercontent.com/47091544/205941068-ab787ef8-1bd9-4e2a-b6ad-05b1bf5634b3.PNG)
+![Controle Fornecedor](https://user-images.githubusercontent.com/47091544/205941071-51ecae01-f0e2-4b58-8a15-d90f631b7829.PNG)
+![Cupom não fiscal venda](https://user-images.githubusercontent.com/47091544/205941075-8f250f77-dab1-49dd-ad51-8f7e7606275c.PNG)
+![Estoque](https://user-images.githubusercontent.com/47091544/205941077-bfc98c1f-63b8-4446-abd0-e5ba145b7ca3.PNG)
+![Finalizar Venda](https://user-images.githubusercontent.com/47091544/205941080-c1c72ddb-3c97-4f9d-b2b4-9d9cada359bd.PNG)
+![Login](https://user-images.githubusercontent.com/47091544/205941082-3a838635-9947-4b0f-9dd9-8a3765fcfb85.PNG)
+![PaginaPrincipal](https://user-images.githubusercontent.com/47091544/205941085-485b44d6-ad9e-45fe-a960-b727fd6c4d13.PNG)
+![Venda](https://user-images.githubusercontent.com/47091544/205941088-f6e13085-df1f-4cfb-8e6c-c9238b3cb7de.PNG)
+
+
